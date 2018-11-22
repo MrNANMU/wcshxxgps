@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="设置"
+                android:textColor="#fff"
+                android:textSize="16sp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="16dp"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_interval_wrap"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/background">
+
+                <TextView
+                    android:id="@+id/tv_interval"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="16dp"
+                    android:textColor="#fff"
+                    android:text="GPS获取频率"
+                    android:layout_marginLeft="16dp"
+                    android:layout_centerVertical="true"/>
+
+                <TextView
+                    android:id="@+id/tv_interval_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:layout_marginRight="16dp"
+                    android:text="秒"
+                    android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:textColorHint="@color/hint"/>
+
+                <EditText
+                    android:id="@+id/et_interval"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="0dp"
+                    android:layout_toLeftOf="@id/tv_interval_unit"
+                    android:background="@null"
+                    android:inputType="number"
+                    android:text="10"
+                    android:textColor="#fff"
+                    android:textColorHint="@color/hint"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_maxitem_wrap"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/background">
+
+                <TextView
+                    android:id="@+id/tv_maxitem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="16dp"
+                    android:textColor="#fff"
+                    android:text="动态数据显示最大条数"
+                    android:layout_marginLeft="16dp"
+                    android:layout_centerVertical="true"/>
+
+                <TextView
+                    android:id="@+id/tv_maxitem_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:layout_marginRight="16dp"
+                    android:text="条"
+                    android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:textColorHint="@color/hint"/>
+
+                <EditText
+                    android:id="@+id/et_maxitem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="0dp"
+                    android:layout_toLeftOf="@id/tv_maxitem_unit"
+                    android:background="@null"
+                    android:inputType="number"
+                    android:text="35"
+                    android:textColor="#fff"
+                    android:textColorHint="@color/hint"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_reader_wrap"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/background">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="16dp"
+                    android:textColor="#fff"
+                    android:text="历史文件默认阅读器"
+                    android:layout_marginLeft="16dp"
+                    android:layout_centerVertical="true"/>
+
+                <TextView
+                    android:id="@+id/tv_reader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:layout_marginRight="16dp"
+                    android:text="阅读时选择"
+                    android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:textColorHint="@color/hint"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_reset_wrap"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/background"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="16dp"
+                    android:textColor="#fff"
+                    android:text="恢复默认设置"
+                    android:layout_marginLeft="16dp"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+
+            <!--<RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/background">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="16dp"
+                    android:textColor="#fff"
+                    android:text="示例"
+                    android:layout_marginLeft="16dp"
+                    android:layout_centerVertical="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:layout_marginRight="16dp"
+                    android:text="秒"
+                    android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:textColorHint="@color/hint"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:textCursorDrawable="@drawable/cursor"
+                    android:text="10"
+                    android:inputType="number"
+                    android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:layout_centerVertical="true"
+                    android:textColorHint="@color/hint"
+                    android:layout_toLeftOf/>
+
+            </RelativeLayout>-->
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

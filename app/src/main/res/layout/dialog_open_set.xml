@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <TextView
+        android:id="@+id/tv_open_by_gps"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:textColor="#fff"
+        android:text="使用GPS记录仪浏览"
+        android:textSize="16sp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="16dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#fff"/>
+
+    <TextView
+        android:id="@+id/tv_open_by_system"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:textColor="#fff"
+        android:text="跳转到系统文件阅读器浏览"
+        android:textSize="16sp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="16dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#fff"/>
+
+    <LinearLayout
+        android:id="@+id/ll_checkbox_wrap"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="16dp">
+
+        <CheckBox
+            android:id="@+id/cb_save_open_set"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:textSize="16sp"
+            android:button="@null"
+            android:gravity="center_vertical"
+            android:background="@drawable/selector_my_checkbox" />
+
+        <TextView
+            android:id="@+id/tv_checkbox_txt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="不再提示"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="16dp"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

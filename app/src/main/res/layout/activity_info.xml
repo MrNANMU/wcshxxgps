@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <TextView
+        android:id="@+id/tv_path_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        android:text="文件路径"/>
+
+    <TextView
+        android:id="@+id/tv_file_path"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="#fff"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@id/tv_path_title"/>
+
+    <LinearLayout
+        android:id="@+id/ll_file_base_info"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="@color/background">
+
+        <TextView
+            android:id="@+id/tv_file_name"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="@color/background"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            android:text="示例名称"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"/>
+
+        <TextView
+            android:id="@+id/tv_file_create_time"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:background="@color/background"
+            android:textColor="#fff"
+            android:textSize="12sp"
+            android:gravity="center_vertical"
+            android:text="yyyy-MM-dd HH:mm:ss"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_content_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        android:text="文件内容"
+        android:layout_below="@id/tv_file_path"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/ll_file_base_info"
+        android:layout_below="@id/tv_content_title">
+
+        <TextView
+            android:id="@+id/tv_infos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#fff"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"/>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_permission_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_margin="16dp"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:text="权限名"
+        android:layout_alignParentRight="true"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_permission_name"
+        android:background="#fff">
+
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:id="@+id/tv_permission_description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            android:textColor="@color/background"/>
+
+    </ScrollView>
+
+</RelativeLayout>

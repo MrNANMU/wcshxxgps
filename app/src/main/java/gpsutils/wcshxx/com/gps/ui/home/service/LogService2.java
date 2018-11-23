@@ -10,6 +10,7 @@ import android.support.annotation.RequiresApi;
 import android.util.Log;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -34,9 +35,14 @@ public class LogService2 extends Service {
     private GPSUtils gpsUtils;
     private Subscription uiSubscription;
     private File file;
-    private String currentFileName;
+    private static String currentFileName;
+    private List<String> list;
 
     public class GpsBinder extends Binder{
+
+        public void init(){
+            list = new ArrayList<>();
+        }
 
         public void start(){
             Observable<String> observable = observable();
@@ -59,6 +65,11 @@ public class LogService2 extends Service {
             if(uiSubscription != null && !uiSubscription.isUnsubscribed()){
                 uiSubscription.unsubscribe();
             }
+            currentFileName = null;
+        }
+
+        public List<String> getInfoList(){
+            return list;
         }
     }
 
@@ -73,7 +84,9 @@ public class LogService2 extends Service {
         super.onCreate();
         startForeground(NOTIFICATION_ID, NotificationUtils.create(NOTIFICATION_ID));
         gpsUtils = GPSUtils.init(this);
-        currentFileName = String.valueOf(System.currentTimeMillis());
+        if(currentFileName == null){
+            currentFileName = String.valueOf(System.currentTimeMillis());
+        }
         file = FileUtils.open(currentFileName + ".txt");
         if(file == null){
             file = FileUtils.create(currentFileName + ".txt", true);

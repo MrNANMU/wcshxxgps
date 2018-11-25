@@ -16,10 +16,12 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="?attr/actionBarSize"
-            app:tabSelectedTextColor="#F0F0F0"
+            app:tabSelectedTextColor="@color/text"
             app:tabMode="scrollable"
-            app:tabTextColor="@color/background"
-            app:tabIndicatorColor="#F0F0F0"/>
+            app:tabTextColor="@color/text"
+            app:tabIndicatorColor="@color/text">
+
+        </android.support.design.widget.TabLayout>
 
         <ImageView
             android:id="@+id/iv_set"

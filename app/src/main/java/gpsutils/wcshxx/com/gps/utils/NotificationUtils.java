@@ -22,7 +22,7 @@ public class NotificationUtils {
     public static Notification create(int id){
         MANAGER.createNotificationChannel(createChannel());
         NotificationCompat.Builder builder = new NotificationCompat.Builder(App.getApplication(),NOTIFICATION_CHANNEL_ID);
-        builder.setSmallIcon(R.mipmap.ic_launcher)
+        builder.setSmallIcon(R.drawable.logo)
                 .setContentTitle("GPS记录仪正在运行")
                 .setContentText("正在为您记录数据");
         return builder.build();

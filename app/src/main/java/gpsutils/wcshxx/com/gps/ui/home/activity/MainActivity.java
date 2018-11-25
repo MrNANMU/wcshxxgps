@@ -20,6 +20,7 @@ import gpsutils.wcshxx.com.gps.base.view.BaseFragment;
 import gpsutils.wcshxx.com.gps.ui.home.adapter.MyFragmentAdapter;
 import gpsutils.wcshxx.com.gps.ui.home.fragment.FileFragment;
 import gpsutils.wcshxx.com.gps.ui.home.fragment.InfoFragment;
+import gpsutils.wcshxx.com.gps.ui.home.fragment.InfoFragment2;
 import gpsutils.wcshxx.com.gps.ui.setting.activity.SettingActivity;
 import gpsutils.wcshxx.com.gps.utils.FileUtils;
 import gpsutils.wcshxx.com.gps.utils.GPSUtils;
@@ -46,7 +47,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         vp_home = $(R.id.vp_home);
         iv_set = $(R.id.iv_set);
         iv_set.setOnClickListener(this);
-        InfoFragment infoFragment = InfoFragment.create();
+        InfoFragment2 infoFragment = InfoFragment2.create();
         FileFragment fileFragment = FileFragment.create();
         infoFragment.setNewGPSFileCreateListener(fileFragment);
         fragments = new ArrayList<>();

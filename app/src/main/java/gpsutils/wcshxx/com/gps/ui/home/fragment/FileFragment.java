@@ -26,6 +26,7 @@ import gpsutils.wcshxx.com.gps.ui.home.dialog.RenameDialog;
 import gpsutils.wcshxx.com.gps.utils.DialogHelper;
 import gpsutils.wcshxx.com.gps.utils.FileUtils;
 import gpsutils.wcshxx.com.gps.utils.LogUtils;
+import gpsutils.wcshxx.com.gps.utils.ShareUtils;
 import gpsutils.wcshxx.com.gps.utils.ToastUtils;
 
 public class FileFragment extends BaseFragment implements OnItemClickedListener,NewGPSFileCreateListener{
@@ -132,7 +133,7 @@ public class FileFragment extends BaseFragment implements OnItemClickedListener,
                 }
                 break;
             case R.id.tv_share:
-                ToastUtils.show("开发中");
+                ShareUtils.share(context,list.get(position));
                 break;
             case R.id.tv_load:
             default:

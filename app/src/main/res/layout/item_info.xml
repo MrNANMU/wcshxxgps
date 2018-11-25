@@ -9,8 +9,9 @@
         android:id="@+id/tv_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:textColor="#f0f0f0"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:textColor="@color/text"
         android:text="$GAPPS 123,1231,123S,AS"/>
 
 </LinearLayout>

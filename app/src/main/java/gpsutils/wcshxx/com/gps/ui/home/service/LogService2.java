@@ -7,6 +7,7 @@ import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.RequiresApi;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import java.io.File;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import gpsutils.wcshxx.com.gps.config.Config;
+import gpsutils.wcshxx.com.gps.ui.home.adapter.InfoAdapter;
 import gpsutils.wcshxx.com.gps.utils.FileUtils;
 import gpsutils.wcshxx.com.gps.utils.GPSUtils;
 import gpsutils.wcshxx.com.gps.utils.LogUtils;
@@ -40,22 +42,25 @@ public class LogService2 extends Service {
 
     public class GpsBinder extends Binder{
 
+        private InfoAdapter adapter;
+        private RecyclerView recyclerView;
+
         public void init(){
             list = new ArrayList<>();
         }
 
         public void start(){
             Observable<String> observable = observable();
-            uiSubscription = observable.throttleWithTimeout(Config.getInterval(), TimeUnit.MILLISECONDS).observeOn(Schedulers.io()).map(new Func1<String, String>() {
+            uiSubscription = observable.throttleFirst(Config.getInterval(), TimeUnit.MILLISECONDS).observeOn(Schedulers.io()).map(new Func1<String, String>() {
                 @Override
                 public String call(String s) {
-                    LogUtils.e("保存文件 -> 进程:"+Thread.currentThread().getName());
-                    return "变换后:::"+s;
+                    FileUtils.WriteHelper.with(file).append(s);
+                    return s;
                 }
             }).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<String>() {
                 @Override
                 public void call(String s) {
-                    LogUtils.e("更新UI -> 进程:"+Thread.currentThread().getName()+";内容:"+s);
+                    updateUi(s);
                 }
             });
         }
@@ -70,6 +75,35 @@ public class LogService2 extends Service {
 
         public List<String> getInfoList(){
             return list;
+        }
+
+        public void bindAdapter(InfoAdapter adapter){
+            this.adapter = adapter;
+        }
+
+        public void bindRecyclerView(RecyclerView recyclerView){
+            this.recyclerView = recyclerView;
+        }
+
+        public void updateUi(String data){
+            if(adapter != null){
+                adapter.add(data);
+            }
+            if(recyclerView != null){
+                recyclerView.smoothScrollToPosition(list.size());
+            }
+        }
+
+        public void unbind(){
+            recyclerView = null;
+            adapter = null;
+        }
+
+        public String getcurrentFilePath(){
+            if(file != null){
+                return file.getAbsolutePath();
+            }
+            return null;
         }
     }
 
@@ -117,6 +151,7 @@ public class LogService2 extends Service {
                     public void onNmeaReceived(long timestamp, String nmea) {
                         /*List<String> showTypes = Config.getShowType();
                         final int i = showTypes.size();*/
+                        LogUtils.e("数据更新："+nmea);
                         if(nmea.startsWith("$GPGGA")){
                             LogUtils.e("所在进程："+Thread.currentThread().getName());
                             asyncEmitter.onNext(nmea);

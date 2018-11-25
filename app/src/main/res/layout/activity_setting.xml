@@ -18,16 +18,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:text="设置"
-                android:textColor="#fff"
+                android:textColor="@color/text"
                 android:textSize="16sp"
                 android:gravity="center_vertical"
                 android:layout_marginLeft="16dp"/>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/text"/>
+
             <RelativeLayout
                 android:id="@+id/rl_interval_wrap"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@color/background">
+                android:layout_height="48dp">
 
                 <TextView
                     android:id="@+id/tv_interval"
@@ -35,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:textSize="16dp"
-                    android:textColor="#fff"
+                    android:textColor="@color/text"
                     android:text="GPS获取频率"
                     android:layout_marginLeft="16dp"
                     android:layout_centerVertical="true"/>
@@ -49,7 +53,7 @@
                     android:textCursorDrawable="@drawable/cursor"
                     android:layout_marginRight="16dp"
                     android:text="秒"
-                    android:textColor="#fff"
+                    android:textColor="@color/text"
                     android:textSize="16sp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
@@ -66,7 +70,7 @@
                     android:background="@null"
                     android:inputType="number"
                     android:text="10"
-                    android:textColor="#fff"
+                    android:textColor="@color/text"
                     android:textColorHint="@color/hint"
                     android:textCursorDrawable="@drawable/cursor"
                     android:textSize="16sp" />
@@ -76,8 +80,7 @@
             <RelativeLayout
                 android:id="@+id/rl_maxitem_wrap"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@color/background">
+                android:layout_height="48dp">
 
                 <TextView
                     android:id="@+id/tv_maxitem"
@@ -85,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:textSize="16dp"
-                    android:textColor="#fff"
+                    android:textColor="@color/text"
                     android:text="动态数据显示最大条数"
                     android:layout_marginLeft="16dp"
                     android:layout_centerVertical="true"/>
@@ -99,7 +102,7 @@
                     android:textCursorDrawable="@drawable/cursor"
                     android:layout_marginRight="16dp"
                     android:text="条"
-                    android:textColor="#fff"
+                    android:textColor="@color/text"
                     android:textSize="16sp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
@@ -116,7 +119,7 @@
                     android:background="@null"
                     android:inputType="number"
                     android:text="35"
-                    android:textColor="#fff"
+                    android:textColor="@color/text"
                     android:textColorHint="@color/hint"
                     android:textCursorDrawable="@drawable/cursor"
                     android:textSize="16sp" />
@@ -126,15 +129,14 @@
             <RelativeLayout
                 android:id="@+id/rl_reader_wrap"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@color/background">
+                android:layout_height="48dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:textSize="16dp"
-                    android:textColor="#fff"
+                    android:textColor="@color/text"
                     android:text="历史文件默认阅读器"
                     android:layout_marginLeft="16dp"
                     android:layout_centerVertical="true"/>
@@ -148,7 +150,7 @@
                     android:textCursorDrawable="@drawable/cursor"
                     android:layout_marginRight="16dp"
                     android:text="阅读时选择"
-                    android:textColor="#fff"
+                    android:textColor="@color/text"
                     android:textSize="16sp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
@@ -157,19 +159,22 @@
 
             </RelativeLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:background="@color/text"/>
+
             <RelativeLayout
                 android:id="@+id/rl_reset_wrap"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@color/background"
-                android:layout_marginTop="16dp">
+                android:layout_height="48dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:textSize="16dp"
-                    android:textColor="#fff"
+                    android:textColor="@color/text"
                     android:text="恢复默认设置"
                     android:layout_marginLeft="16dp"
                     android:layout_centerVertical="true"/>

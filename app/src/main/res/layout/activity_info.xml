@@ -13,7 +13,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
-        android:textColor="#fff"
+        android:textColor="@color/text"
         android:textSize="16sp"
         android:text="文件路径"/>
 
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="12sp"
-        android:textColor="#fff"
+        android:textColor="@color/text"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
@@ -69,7 +69,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
-        android:textColor="#fff"
+        android:textColor="@color/text"
         android:textSize="16sp"
         android:text="文件内容"
         android:layout_below="@id/tv_file_path"/>
@@ -85,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:textColor="#fff"
+            android:textColor="@color/text"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"/>
 

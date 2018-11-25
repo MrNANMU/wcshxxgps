@@ -20,7 +20,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
-        LogUtils.allowLog(true);
+        LogUtils.allowLog(false);
         if(isFirstRunning()){
             Config.reset();
         }

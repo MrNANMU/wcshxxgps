@@ -36,7 +36,7 @@ import gpsutils.wcshxx.com.gps.ui.home.service.LogService2;
 import gpsutils.wcshxx.com.gps.utils.LogUtils;
 import gpsutils.wcshxx.com.gps.utils.ToastUtils;
 
-public class InfoFragment2 extends BaseFragment implements View.OnClickListener,GpsStatus.NmeaListener{
+public class InfoFragment2 extends BaseFragment implements View.OnClickListener{
 
     private RecyclerView rv_info;
     private InfoAdapter adapter;
@@ -58,6 +58,9 @@ public class InfoFragment2 extends BaseFragment implements View.OnClickListener,
             manager.setOrientation(LinearLayoutManager.VERTICAL);
             rv_info.setAdapter(adapter);
             rv_info.setLayoutManager(manager);
+            gpsBinder.bindAdapter(adapter);
+            gpsBinder.bindRecyclerView(rv_info);
+            gpsBinder.start();
         }
 
         @Override
@@ -112,8 +115,11 @@ public class InfoFragment2 extends BaseFragment implements View.OnClickListener,
             case R.id.fab_get:
                 boolean isServiceRunning = (Boolean) v.getTag();
                 if(isServiceRunning){
+                    context.unbindService(connection);
                     setButtonImg(false);
                     resetCountStatus();
+                    newFileListener.newFileCreate(gpsBinder.getcurrentFilePath());
+                    gpsBinder.stop();
                 }else{
                     context.bindService(new Intent(context,LogService2.class),connection,Context.BIND_AUTO_CREATE);
                     setButtonImg(true);
@@ -131,72 +137,21 @@ public class InfoFragment2 extends BaseFragment implements View.OnClickListener,
         fab_get.setTag(isServiceRunning);
     }
 
-    public void updateGpsInfo(String GPGGA) {
-        adapter.add(GPGGA);
-        rv_info.smoothScrollToPosition(list.size());
-    }
-
     @Override
     public void onDestroy() {
         super.onDestroy();
-
+        if(gpsBinder != null){
+            gpsBinder.unbind();
+        }
     }
 
     public void setNewGPSFileCreateListener(NewGPSFileCreateListener newFileListener){
         this.newFileListener = newFileListener;
     }
 
-    private boolean isFirstGet = true;
-    private MyCountDownTimer countDownTimer = new MyCountDownTimer(Config.getInterval(),1000);
-
-    @Override
-    public void onNmeaReceived(long timestamp, String nmea) {
-        LogUtils.e("nmea -> "+nmea);
-        String typeHead = nmea.substring(0,nmea.indexOf(","));
-        List<String> type = Config.getShowType();
-        if(type.contains(typeHead)){
-            if(isFirstGet){
-                updateGpsInfo(nmea);
-                isFirstGet = false;
-                countDownTimer.start();
-            }else{
-                gpsDataMap.put(typeHead,nmea);
-            }
-        }
-    }
-
     private void resetCountStatus(){
-        isFirstGet = true;
-        countDownTimer = new MyCountDownTimer(Config.getInterval(),1000);
         list.removeAll(list);
         adapter.notifyDataSetChanged();
-    }
-
-    public class MyCountDownTimer extends CountDownTimer{
-
-        /**
-         * @param millisInFuture    The number of millis in the future from the call
-         *                          to {@link #start()} until the countdown is done and {@link #onFinish()}
-         *                          is called.
-         * @param countDownInterval The interval along the way to receive
-         *                          {@link #onTick(long)} callbacks.
-         */
-        public MyCountDownTimer(long millisInFuture, long countDownInterval) {
-            super(millisInFuture, countDownInterval);
-        }
-
-        @Override
-        public void onTick(long millisUntilFinished) {
-
-        }
-
-        @Override
-        public void onFinish() {
-            for(String type:Config.getShowType()){
-               updateGpsInfo(gpsDataMap.get(type));
-            }
-            start();
-        }
     }
 
 }

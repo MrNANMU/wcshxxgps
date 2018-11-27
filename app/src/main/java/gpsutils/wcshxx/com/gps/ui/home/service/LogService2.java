@@ -54,7 +54,7 @@ public class LogService2 extends Service {
             uiSubscription = observable.throttleFirst(Config.getInterval(), TimeUnit.MILLISECONDS).observeOn(Schedulers.io()).map(new Func1<String, String>() {
                 @Override
                 public String call(String s) {
-                    FileUtils.WriteHelper.with(file).append(s);
+                    FileUtils.WriteHelper.with(file).append(s).close();
                     return s;
                 }
             }).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<String>() {
